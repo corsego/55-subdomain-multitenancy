@@ -5,7 +5,7 @@
 <section>
   <% @accounts.each do |account| %>
     <p>
-      <%= link_to "#" do  %>
+      <%= link_to root_url(subdomain: account.subdomain) do  %>
         <%= account.name.capitalize %>
       <% end %>
     </p>

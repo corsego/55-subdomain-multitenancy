@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
 
     if @account.save
       flash[:notice] = "Account has been created. 🤗"
-      redirect_to root_path   
+      redirect_to root_url(subdomain: @account.subdomain)
     else
       flash.now[:alert] = "Account has not been created. 😔"
       render :new
