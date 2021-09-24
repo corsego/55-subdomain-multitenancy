@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :posts
   scope module: "accounts" do 
+    resources :posts
   end
 
   resources :accounts, only: [:index, :new, :create]
