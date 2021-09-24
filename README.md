@@ -1,24 +1,26 @@
-# README
+# Source
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[A Simple Subdomain Implementation in Rails without a Gem](https://www.earnestaddae.me/tutorials/a-simple-subdomain-implementation-in-rails-without-a-gem#lvh-me-explained)
 
-Things you may want to cover:
+# Subdomain Rails
 
-* Ruby version
+This repo shows the implementation of Subdomain in Rails
 
-* System dependencies
+# Genrating SSL Certificate
+Generate the letsencrypt SSL certificate with the following
 
-* Configuration
+```
+  sudo certbot certonly --manual \
+  --preferred-challenges=dns \
+  --email youremail@email.com \
+  --server https://acme-v02.api.letsencrypt.org/directory \
+  --agree-tos \
+  --manual-public-ip-logging-ok \
+  -d "*.domain.com"
+```
 
-* Database creation
+# Upload Certificate to Heroku
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+  sudo heroku certs:add {filelocation}/fullchain.pem {filelocation}/privkey.pem
+```
